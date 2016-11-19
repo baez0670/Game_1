@@ -25,4 +25,8 @@ Counter counter = new Counter();
             addObject(new worm(), x, y);
     }
 }
+    public Counter getCounter()
+{
+    return counter;
+}
 }

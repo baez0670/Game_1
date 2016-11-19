@@ -29,11 +29,11 @@ public class crab extends Animal
         if(canSee(worm.class))
         {
            eat(worm.class);
-          // Space space = (Space)MyWorld;
-           // Counter cou = new Counter();
-          // cou.addScore();
-        //  MyWorld world = (MyWorld)getWorld();
-        // worm = worm +10;
+         MyWorld world = (MyWorld)getWorld();
+         Counter cou = world.getCounter();
+         cou.addScore();
+         
+       
          
        
        
