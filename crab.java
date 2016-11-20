@@ -1,43 +1,46 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class crab here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class crab extends Animal
 {
-    /**
-     * Act - do whatever the crab wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int deadWorm = 0;
     public void act() 
     {
         lookForWorm();
-        move(3);
+        move(4);
        if(Greenfoot.isKeyDown("left")){
-            turn(-10);
+            turn(-4);
        }    
        if(Greenfoot.isKeyDown("right")){
-            turn(10);
+            turn(4);
        }
     }    
     public void lookForWorm()
     {
-       
         if(canSee(worm.class))
         {
-           eat(worm.class);
-         MyWorld world = (MyWorld)getWorld();
-         Counter cou = world.getCounter();
-         cou.addScore();
-         
-       
-         
-       
-       
+          eat(worm.class);
+          MyWorld world = (MyWorld)getWorld();
+          Counter cou = world.getCounter();
+          cou.addScore();
+          deadWorm = deadWorm + 1;
+          if (deadWorm % 10 == 0)
+            {
+                nextStage();
+            }
         }
     }
+    public void nextStage()
+        {
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new worm(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+          getWorld().addObject( new lobster(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+        }
 }
 

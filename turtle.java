@@ -1,42 +1,44 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class turtle here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class turtle extends lobster implements Freeze
-{
-    /**
-     * Act - do whatever the turtle wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+import greenfoot.*;
+public class turtle extends lobster
+{ 
     private int counter;
-    
     public turtle(){
         counter = 100;
     }
     public void act()
     {
-         lookForLobster();
-        if(counter <= 0 )
-        super.act();
-        else
-        counter--;
+        lookForLobster();
+       freeze();
     }
-    public void freeze(int count){
-        counter = count;
-    }
-
-      public void lookForLobster()
-        {
-    
+    public void lookForLobster()
+    {
         if(canSee(lobster.class))
         {
            eat(lobster.class);
-}
-}
+        }
+    }
+    public void freeze()
+    {
+        if (counter > 0)
+        {
+            super.act();
+            counter--;
+        }
+        else if(counter<=0)
+        {
+            if(counter == -100)
+            {
+                counter = counter + 200;
+            }
+            else
+            {
+                counter = counter - 1;
+            }
+        }
+    }
+    public void lookForCrab()
+    {
+    }
 }
 
 
